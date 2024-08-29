@@ -46,10 +46,9 @@ def calculate():
             answer = "shouldn't be printing as this never happens!"
         else:
             answer = "should not pay it off early"
-    
-        return render_template("answer_page.html", answer = answer, tables = [df.to_html(classes="data")], titles=df.columns.values)
+        return render_template("answer_page.html", answer = answer, tables = [df.to_html(header=True)])
 
-def analyse(balance, years_left, initial_salary, salary_boost,investment_interest)
+def analyse(balance, years_left, initial_salary, salary_boost,investment_interest):
     #Would like to randomly compute if worth paying off student loan
 
     #Independent variables are: {salary, interest, inflation rate}
@@ -69,7 +68,7 @@ def analyse(balance, years_left, initial_salary, salary_boost,investment_interes
     final_money_saved_investment = []
     final_loan_balance = []
 
-    df = pandas.DataFrame(columns = ["Final Salary","Years to Payback","Appreciation of Lump Sum based on Inflation", "Appreciation of Lump Sum from Investment", "Actual sum spent to pay off Loan", "Money Saved by Paying Early (Considers Inflation)", "Money Saved by Paying Early (Considers Investment)"])
+    df = pandas.DataFrame(columns = ["Final Salary","Years to Payback","Appreciation of Lump Sum based on Inflation", "Appreciation of Lump Sum from Investment", "Actual sum spent to pay off Loan", "Money Saved by Paying Early (Considers Inflation)", "Money Saved by Paying Early (Considers Investment)", "Loan balance"])
 
     #CAN BE EDITED:
     window = 5 #defines window to change rates
